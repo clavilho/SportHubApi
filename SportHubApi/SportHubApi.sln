@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportHubApi", "SportHubApi\SportHubApi.csproj", "{4D10B545-56FF-4CCA-925C-B2AB06761E13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D10B545-56FF-4CCA-925C-B2AB06761E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D10B545-56FF-4CCA-925C-B2AB06761E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D10B545-56FF-4CCA-925C-B2AB06761E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D10B545-56FF-4CCA-925C-B2AB06761E13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C708094-86AA-4825-AE0F-4FC2D774CA12}
+	EndGlobalSection
+EndGlobal
