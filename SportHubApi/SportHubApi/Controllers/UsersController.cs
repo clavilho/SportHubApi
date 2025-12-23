@@ -14,7 +14,7 @@ namespace SportHubApi.Controllers
             this._userService = _userService;
         }
 
-        [HttpGet("CadastroUsuario")]
+        [HttpPost("CadastroUsuario")]
         public async Task<IActionResult> CadastrarUsuario([FromBody] User usuario)
         {
             await _userService.CreateAsync(usuario);

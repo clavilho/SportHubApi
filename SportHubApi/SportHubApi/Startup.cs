@@ -1,4 +1,6 @@
 ﻿using MongoDB.Driver;
+using SportHubApi.Application;
+using SportHubApi.Application.Microsoft.Extensions.Dependency.Injection;
 using SportHubApi.DbRepository;
 using SportHubApi.DbRepository.Microsoft.Extensions.DependencyInjection;
 using System.Text.Json.Serialization;
@@ -30,22 +32,11 @@ namespace SportHubApi
             services.AddSwaggerGen();
 
 
-            services.AddSingleton<IMongoClient>(sp =>
-            {
-                var configuration = sp.GetRequiredService<IConfiguration>();
-                var connectionString = configuration["MongoDb:ConnectionString"];
-                return new MongoClient(connectionString);
-            });
+            //services.Configure<DbRepositoryAdapterConfiguration>(
+            //Configuration.GetSection("DbRepositoryAdapterConfiguration"));
 
-            services.AddScoped<IMongoDatabase>(sp =>
-            {
-                var client = sp.GetRequiredService<IMongoClient>();
-                var configuration = sp.GetRequiredService<IConfiguration>();
-                var databaseName = configuration["MongoDb:Database"];
-                return client.GetDatabase(databaseName);
-            });
-
-            services.AddDbRepositoryAdapter(Configuration.Get<DbRepositoryAdapterConfiguration>());
+            services.AddDbRepositoryAdapter(Configuration.GetSection("DbRepositoryAdapterConfiguration").Get<DbRepositoryAdapterConfiguration>());
+            services.AddApplication(Configuration.Get<ApplicationConfiguration>());
 
         }
 

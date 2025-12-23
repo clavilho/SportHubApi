@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Driver;
 using SportHubApi.Domain.Adapters;
 
 namespace SportHubApi.DbRepository.Microsoft.Extensions.DependencyInjection
@@ -9,6 +10,7 @@ namespace SportHubApi.DbRepository.Microsoft.Extensions.DependencyInjection
            this IServiceCollection services,
            DbRepositoryAdapterConfiguration dbRepositoryAdapter)
         {
+
             if (services is null)
             {
                 throw new ArgumentNullException(nameof(services));
@@ -18,6 +20,16 @@ namespace SportHubApi.DbRepository.Microsoft.Extensions.DependencyInjection
             {
                 throw new ArgumentException(nameof(dbRepositoryAdapter));
             }
+
+            services.AddSingleton<IMongoClient>(_ =>
+             new MongoClient(dbRepositoryAdapter.ConnexionString));
+
+            // Mongo Database - Scoped
+            services.AddScoped<IMongoDatabase>(sp =>
+            {
+                var client = sp.GetRequiredService<IMongoClient>();
+                return client.GetDatabase(dbRepositoryAdapter.Database);
+            });
 
             services.AddSingleton(dbRepositoryAdapter);
 
