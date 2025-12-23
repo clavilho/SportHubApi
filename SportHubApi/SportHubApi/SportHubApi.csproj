@@ -10,4 +10,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SportHubApi.Application\SportHubApi.Application.csproj" />
+    <ProjectReference Include="..\SportHubApi.DbRepository\SportHubApi.DbRepository.csproj" />
+    <ProjectReference Include="..\SportHubApi.Domain\SportHubApi.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
